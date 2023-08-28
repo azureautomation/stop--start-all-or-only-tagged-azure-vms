@@ -1,5 +1,9 @@
 param (
 
+
+ [Parameter(Mandatory=$true)]  
+    [String] $SubscriptionId,
+
     [Parameter(Mandatory=$true)]  
     [String] $Action,
 
@@ -21,9 +25,11 @@ try
     $null = Disable-AzContextAutosave –Scope Process
 
 	$null= Connect-AzAccount -Identity
-   
-
     Write-Output "Successfully logged into Azure." 
+    $AzureContext = Set-AzContext -SubscriptionId $SubscriptionId    
+
+
+   
 } 
 catch
 {
