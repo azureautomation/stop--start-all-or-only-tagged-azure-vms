@@ -17,7 +17,7 @@ This PowerShell Runbook connects to Azure using managed idenity, retrieves the p
 
 2. An Action input parameter value that allows runbook to handle VMs power state. The parameter must be set to 'Stop' or 'Start'.
 
-3. An Action input parameter value for the Subscription ID, to scope the VMs that are part of subscription. 
+3. An Action input parameter value for the Subscription ID of the VMs that you want to Start/Stop.
 
 4. All the following PowerShell modules are required to run the cmdlets : Az.Accounts, Az.Resources, Az.Compute and Az.Automation.
 
