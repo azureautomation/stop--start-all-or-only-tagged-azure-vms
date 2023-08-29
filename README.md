@@ -6,20 +6,22 @@
 **DESCRIPTION**
 
 
-This PowerShell Runbook (compatible with PowerShell Core) connects to Azure using an Automation Run As account, retrieves the power status of VMs and turns off / on in sequence those that are turned on / off. You can attach a recurring schedule to this runbook
+This PowerShell Runbook connects to Azure using managed idenity, retrieves the power status of VMs and turns off / on in sequence those that are turned on / off. You can attach a recurring schedule to this runbook
  to run it at a specific time.
 
 
 **REQUIRED**
 
 
-1. An Automation connection asset called AzureRunAsConnection that contains the information for connecting with Azure using a service principal. To use an asset with a different name you can pass the asset name as a input parameter to this runbook.
-
+1. You have to create a managed identity for your automation account. 
 
 2. An Action input parameter value that allows runbook to handle VMs power state. The parameter must be set to 'Stop' or 'Start'.
 
+3. An Action input parameter value for the Subscription ID of the VMs that you want to Start/Stop.
 
-3. All the following PowerShell modules are required to run the cmdlets : Az.Accounts, Az.Resources, Az.Compute and Az.Automation.
+4. All the following PowerShell modules are required to run the cmdlets : Az.Accounts, Az.Resources, Az.Compute and Az.Automation.
+
+
 
 
 **OPTIONAL**
@@ -34,22 +36,18 @@ This PowerShell Runbook (compatible with PowerShell Core) connects to Azure usin
 **AUTHOR**
 
 
-Farouk FRIHA
+Bhawna Rawat
 
 
 **LAST EDIT**
 
 
-2019-19-05
+2023-08-28
 
 
 **RELEASE NOTES**
 
-
-2019-19-05 First release
-
-
-2019-19-05 Handle changes to parameters
+2023-08-28 : Updated runbook with Managed Identity authentication
 
 
 **RUNBOOK CONTENT**
